@@ -1,0 +1,36 @@
+<div class="cabecera">
+
+
+  <mat-grid-list cols="2" rowHeight="50">
+    <mat-grid-tile>
+      <label> Buscar por Id:</label>
+      <input type="text" name="nameCharacter" [(ngModel)]="idCharacter" (input)="onSearch()">
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <button mat-button color="accent" (click)="getRandom()">Generar personaje random</button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+</div>
+
+<br>
+
+<div class="movie-container">
+  <div class="center" *ngIf=" character$ | async as character">
+
+    <div *ngFor="let item of character" class="movie-target-container">
+      <div>
+        <mat-card class="movie-target">
+          <img [src]="item.img">
+          <label> {{item.name}}</label>
+          <br>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+</div>
